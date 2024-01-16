@@ -11,22 +11,24 @@ PPMIObject is a Python class that computes Positive Pointwise Mutual Information
 ## Installation
 Clone the repository to your local machine:
 
-```bash
+```
+bash
 git clone https://github.com/your-username/PPMIObject.git
 ```
 
 ## Usage
 Instantiate the PPMIObject by providing the filename and window size:
 
-```from PPMIObject import PPMIObject
-
+```
+from PPMIObject import PPMIObject
 P = PPMIObject("your_corpus.txt", wsize=5)
 ```
 
 You can then use the various methods provided by the class to analyze co-occurrence data.
 
 ## Example
-```target_word, context_word = "spear", "sword"
+```
+target_word, context_word = "spear", "sword"
 pc = P.return_pairwise_count(target_word, context_word)
 print("Pairwise count of \"%s\" and \"%s\": %d" % (target_word, context_word, pc))
 
