@@ -2,9 +2,6 @@ import sys
 from collections import Counter, defaultdict
 import math
 
-import numpy as np
-from numpy.linalg import norm
-
 class PPMIObject(object):
 
 	def __init__(self, filename, wsize=5):
