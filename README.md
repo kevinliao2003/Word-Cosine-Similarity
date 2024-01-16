@@ -38,5 +38,6 @@ print("Top 10 words with highest cosine similarity to 'sea':", top_k_cosine)
 ## Methods
 - return_pairwise_count(target_word, context_word): Returns the pairwise count of a target word and context word.
 - return_topk_cosine(word, k): Returns the top k words with the highest cosine similarity to the given word.
+
 ...
 Refer to the source code or docstrings for more details on available methods.
