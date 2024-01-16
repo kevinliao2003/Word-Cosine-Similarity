@@ -12,7 +12,6 @@ PPMIObject is a Python class that computes Positive Pointwise Mutual Information
 Clone the repository to your local machine:
 
 ```
-bash
 git clone https://github.com/your-username/PPMIObject.git
 ```
 
