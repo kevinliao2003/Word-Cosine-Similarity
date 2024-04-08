@@ -24,6 +24,7 @@ class PPMIObject(object):
 		If the target_word is the first word in the line, then it will have zero left-context tokens;
 		if the target_word is the second word in the line, then it will have one left-context token, etc.
 		"""
+  
 		PC = Counter()
 		with open(self.filename, 'r', encoding="utf8") as file:
 			for line in file:
@@ -44,11 +45,13 @@ class PPMIObject(object):
 		""" Function that returns the pairwise counts (int) of a target word and context word. 
 		See .get_pairwise_counts() method for details.
 		"""
+  
 		pc = self.PC.get((target_word, context_word), 0)
 		return pc
 
 	def return_pairwise_count_total(self):
 		""" Returns the sum (int) over all pairwise counts, i.e. sum_xy Count(x,y). """
+  
 		tc = sum(self.PC.values())
 		return tc
 
@@ -68,11 +71,13 @@ class PPMIObject(object):
 
 	def return_marginal_target_count(self, target_word):
 		""" Function that returns marginal counts (int) of a target word, i.e. sum_x Count(target_word, x) . """
+		
 		mtc = self.MTC[target_word]
 		return mtc	
 
 	def return_marginal_context_count(self, context_word):
 		""" Function that returns marginal counts (int) of a context word, i.e. sum_y Count(y, context_word). """
+  
 		mcc = self.MCC[context_word]
 		return mcc
 
@@ -117,6 +122,7 @@ class PPMIObject(object):
 	def return_topk_ppmi(self, word, k):
 		""" Return ordered list of the k words (as strings) with the highest PPMI to the given word.
 		The list of strings should be in decreasing order, starting with the highest-PPMI word. """
+  
 		PPMI = self.PPMI
 
 		#creates a list of tuples (context_word, ppmi) for the given target word
@@ -132,6 +138,7 @@ class PPMIObject(object):
 	def return_cosine_similarity(self, word1, word2):
 		""" Return cosine similarity of word1 and word2, where their vector representation is their PPMI
 		score with all other observed words """
+  
 		CT = self.CT
 		if word1 in CT and word2 in CT[word1]:
 			return CT[word1][word2]
@@ -142,6 +149,7 @@ class PPMIObject(object):
 
 	def make_cosine_table(self):
 		""" Create a table lookup for cosine similarity of all pairs of words in the vocabulary. """
+  
 		CT = defaultdict(Counter)
 		PPMI = self.PPMI
 
@@ -181,6 +189,7 @@ class PPMIObject(object):
 		lenght k with the words with the highest cosine similarity score to the given word.
 		The list should be in decreasing order, starting with the closest neighboring word/highest
 		cosine similarity. """
+  
 		CT = self.CT
 
 		# Hint: the .most_common() method of the Counter() type may be useful here
